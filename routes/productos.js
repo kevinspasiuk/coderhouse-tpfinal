@@ -3,8 +3,8 @@ const router = express.Router();
 
 const UnauthorizedError = require('../model/errors.js');
 
-const Contenedor = require('../model/contenedor.js')
-const productosRepository = new Contenedor('./db/productos.txt')
+const ProductoRepository = require('../model/productoRepository.js')
+const productosRepository = new ProductoRepository
 
 
 // Validación Producto
@@ -82,7 +82,7 @@ router.post('/', function(req, res, next) {
 
 });
 
-router.put('/:id', function(req, res, next) {
+router.put('/:id', async function(req, res, next) {
   const auth = req.headers.authorize
 
   if ( auth != "admin") {
@@ -95,14 +95,14 @@ router.put('/:id', function(req, res, next) {
     const producto = req.body 
     producto.timestamp = Date.now()
 
-    productosRepository.updateById(id, producto)
-      .then(
-        productosRepository.getById(id).then( producto => res.send(producto))
-      )
-      .catch(err => { 
-        console.log('Error delete producto: ', err)
-        res.send("Error" + err)
-      })
+    try{
+      await productosRepository.updateById(id, producto)
+      const productoAct = await productosRepository.getById(id)
+      res.send(productoAct)
+    } catch (err) {
+      console.log('Error delete producto: ', err)
+      res.send("Error" + err)
+    }
 
   }
   catch {

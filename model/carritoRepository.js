@@ -1,10 +1,11 @@
 const Contenedor = require('../model/contenedor.js')
-
+const FirebaseAdapter = require('../adaptadores/firebaseAdapter.js')
+const ProductoRepository = require('../model/productoRepository.js')
 
 class CarritoRepository {
     constructor (filePath) {
-        this.carritoContenedor = new Contenedor('./db/carritos.txt')
-        this.productosRepository = new Contenedor('./db/productos.txt')
+        this.carritoContenedor = new Contenedor( new FirebaseAdapter )
+        this.productosRepository = new ProductoRepository
     }
 
     async save (object) {
@@ -13,15 +14,17 @@ class CarritoRepository {
 
     async getById(idCarrito){
        const carrito = await this.carritoContenedor.getById(idCarrito)
-       let productos = []
+       if (carrito){ 
+        let productos = []
 
-       for (const id_producto of carrito.productos){
-        const producto = await this.productosRepository.getById(id_producto)
-        console.log("Id producto", id_producto, producto)
-        productos.push(producto)
-       }
-
-       carrito.productos = productos
+        for (const id_producto of carrito.productos){
+         const producto = await this.productosRepository.getById(id_producto)
+         console.log("Id producto", id_producto, producto)
+         productos.push(producto)
+        }
+ 
+        carrito.productos = productos
+       } 
        return carrito
     }
 

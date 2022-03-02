@@ -1,11 +1,11 @@
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
+const express = require('express');
+const path = require('path');
+const cookieParser = require('cookie-parser');
 
-var productosRouter = require('./routes/productos');
-var carritosRouter = require('./routes/carritos');
+const productosRouter = require('./routes/productos');
+const carritosRouter = require('./routes/carritos');
 
-var app = express();
+const app = express();
 const port = process.env.port || 8080
 
 // view engine setup

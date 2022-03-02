@@ -63,17 +63,17 @@ router.get('/:id/productos', function(req, res, next) {
 
 });
 
-router.post('/:id/productos', function(req, res, next) {
+router.post('/:id/productos', async function(req, res, next) {
     const id = parseInt(req.params.id)
     const id_producto = parseInt(req.body.id_producto)
-    carritosRepository.addProduct(id, id_producto)
-      .then( id=>  carritosRepository.getById(id))
-      .then( carrito_actualizado => res.send(carrito_actualizado))
-      .catch(err => 
-        { 
-          console.log('Error agregando producto carrito: ', err)
-          res.send("Error" + err)
-        })
+    try {
+      await carritosRepository.addProduct(id, id_producto)
+      const carritoActualizado = await carritosRepository.getById(id)
+      res.send(carritoActualizado)
+    } catch(err) { 
+      console.log('Error agregando producto carrito: ', err)
+      res.send("Error" + err)
+    }
 });
 
 
