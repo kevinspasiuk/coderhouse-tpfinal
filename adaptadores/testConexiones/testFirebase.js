@@ -1,4 +1,5 @@
 const admin = require("firebase-admin");
+const logger = require('../utils/logger.js');
 
 const serviceAccount = require("./coderhouse-61464-firebase-adminsdk-7ti65-2dce5ecf8e.json");
 
@@ -39,7 +40,7 @@ async function test(){
 
     } catch (e) {
 
-        console.log(e)
+        logger.error(e)
     }
 }
 

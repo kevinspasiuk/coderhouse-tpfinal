@@ -1,10 +1,9 @@
 const express = require('express');
 const router = express.Router();
-
-const UnauthorizedError = require('../model/errors.js');
+const logger = require('../utils/logger.js')
 
 const CarritoRepository = require('../model/carritoRepository.js')
-const carritosRepository = new CarritoRepository('./db/carritos.txt')
+const carritosRepository = new CarritoRepository()
 
 router.get('/:id', function(req, res, next) {
     const id = parseInt(req.params.id)
@@ -20,7 +19,7 @@ router.get('/:id', function(req, res, next) {
       })
       .catch(err => 
         { 
-          console.log('Error getting carrito: ', err)
+          logger.error('Error getting carrito: ', err)
           res.send("Error" + err)
         })
 });
@@ -36,7 +35,7 @@ router.post('/', function(req, res, next) {
   .then(id => carritosRepository.getById(id))
   .then(carrito_actualizado => res.send(carrito_actualizado))
     .catch(err => { 
-      console.log('Error post carrito: ', err)
+      logger.error('Error post carrito: ', err)
       res.send("Error" + err)
     
     })
@@ -57,7 +56,7 @@ router.get('/:id/productos', function(req, res, next) {
     })
       .catch(err => 
         { 
-          console.log('Error getting carrito: ', err)
+          logger.error('Error getting carrito: ', err)
           res.send("Error" + err)
         })
 
@@ -71,7 +70,7 @@ router.post('/:id/productos', async function(req, res, next) {
       const carritoActualizado = await carritosRepository.getById(id)
       res.send(carritoActualizado)
     } catch(err) { 
-      console.log('Error agregando producto carrito: ', err)
+      logger.error('Error agregando producto carrito: ', err)
       res.send("Error" + err)
     }
 });
@@ -83,7 +82,7 @@ router.delete('/:id', function(req, res, next) {
     .then( res.send(`Se borró exitosamente el carrito ${id}`))
     .catch(err => 
       { 
-        console.log('Error agregando producto carrito: ', err)
+        logger.error('Error agregando producto carrito: ', err)
         res.send("Error" + err)
       })
 });
@@ -96,7 +95,7 @@ router.delete('/:id/productos/:id_producto', function(req, res, next) {
       .then( res.send(`Se borró exitosamente el Producto ${id_producto} del carrito ${id}`))
       .catch(err => 
         { 
-          console.log('Error agregando producto carrito: ', err)
+          logger.error('Error agregando producto carrito: ', err)
           res.send("Error" + err)
         })
 });

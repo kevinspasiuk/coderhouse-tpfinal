@@ -1,0 +1,109 @@
+[2022-03-12T11:23:20.263] [ERROR] default - Path:  /auth/register  Error:  Error: Failed to serialize user into session
+    at pass (/home/kevin/Documents/PROJECT/curso backend/tercera_entrega_tp_final/ecommerce/node_modules/passport/lib/authenticator.js:278:19)
+    at Authenticator.serializeUser (/home/kevin/Documents/PROJECT/curso backend/tercera_entrega_tp_final/ecommerce/node_modules/passport/lib/authenticator.js:296:5)
+    at SessionManager.logIn (/home/kevin/Documents/PROJECT/curso backend/tercera_entrega_tp_final/ecommerce/node_modules/passport/lib/sessionmanager.js:14:8)
+    at IncomingMessage.req.login.req.logIn (/home/kevin/Documents/PROJECT/curso backend/tercera_entrega_tp_final/ecommerce/node_modules/passport/lib/http/request.js:39:26)
+    at Strategy.strategy.success (/home/kevin/Documents/PROJECT/curso backend/tercera_entrega_tp_final/ecommerce/node_modules/passport/lib/middleware/authenticate.js:256:13)
+    at verified (/home/kevin/Documents/PROJECT/curso backend/tercera_entrega_tp_final/ecommerce/node_modules/passport-local/lib/strategy.js:83:10)
+    at Strategy._verify (/home/kevin/Documents/PROJECT/curso backend/tercera_entrega_tp_final/ecommerce/routes/auth.js:32:12)
+    at Strategy.authenticate (/home/kevin/Documents/PROJECT/curso backend/tercera_entrega_tp_final/ecommerce/node_modules/passport-local/lib/strategy.js:88:12)
+    at attempt (/home/kevin/Documents/PROJECT/curso backend/tercera_entrega_tp_final/ecommerce/node_modules/passport/lib/middleware/authenticate.js:369:16)
+    at authenticate (/home/kevin/Documents/PROJECT/curso backend/tercera_entrega_tp_final/ecommerce/node_modules/passport/lib/middleware/authenticate.js:370:7)
+[2022-03-12T11:31:05.064] [ERROR] default - Path:  /auth/register  Error:  Error: Failed to serialize user into session
+    at pass (/home/kevin/Documents/PROJECT/curso backend/tercera_entrega_tp_final/ecommerce/node_modules/passport/lib/authenticator.js:278:19)
+    at serialized (/home/kevin/Documents/PROJECT/curso backend/tercera_entrega_tp_final/ecommerce/node_modules/passport/lib/authenticator.js:283:7)
+    at /home/kevin/Documents/PROJECT/curso backend/tercera_entrega_tp_final/ecommerce/routes/auth.js:36:3
+    at pass (/home/kevin/Documents/PROJECT/curso backend/tercera_entrega_tp_final/ecommerce/node_modules/passport/lib/authenticator.js:291:9)
+    at Authenticator.serializeUser (/home/kevin/Documents/PROJECT/curso backend/tercera_entrega_tp_final/ecommerce/node_modules/passport/lib/authenticator.js:296:5)
+    at SessionManager.logIn (/home/kevin/Documents/PROJECT/curso backend/tercera_entrega_tp_final/ecommerce/node_modules/passport/lib/sessionmanager.js:14:8)
+    at IncomingMessage.req.login.req.logIn (/home/kevin/Documents/PROJECT/curso backend/tercera_entrega_tp_final/ecommerce/node_modules/passport/lib/http/request.js:39:26)
+    at Strategy.strategy.success (/home/kevin/Documents/PROJECT/curso backend/tercera_entrega_tp_final/ecommerce/node_modules/passport/lib/middleware/authenticate.js:256:13)
+    at verified (/home/kevin/Documents/PROJECT/curso backend/tercera_entrega_tp_final/ecommerce/node_modules/passport-local/lib/strategy.js:83:10)
+    at Strategy._verify (/home/kevin/Documents/PROJECT/curso backend/tercera_entrega_tp_final/ecommerce/routes/auth.js:32:12)
+[2022-03-12T11:38:22.255] [ERROR] default - Path:  /auth/register  Error:  Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
+    at ServerResponse.setHeader (_http_outgoing.js:561:11)
+    at ServerResponse.header (/home/kevin/Documents/PROJECT/curso backend/tercera_entrega_tp_final/ecommerce/node_modules/express/lib/response.js:767:10)
+    at ServerResponse.send (/home/kevin/Documents/PROJECT/curso backend/tercera_entrega_tp_final/ecommerce/node_modules/express/lib/response.js:170:12)
+    at /home/kevin/Documents/PROJECT/curso backend/tercera_entrega_tp_final/ecommerce/routes/auth.js:47:19
+    at Layer.handle [as handle_request] (/home/kevin/Documents/PROJECT/curso backend/tercera_entrega_tp_final/ecommerce/node_modules/express/lib/router/layer.js:95:5)
+    at next (/home/kevin/Documents/PROJECT/curso backend/tercera_entrega_tp_final/ecommerce/node_modules/express/lib/router/route.js:137:13)
+    at complete (/home/kevin/Documents/PROJECT/curso backend/tercera_entrega_tp_final/ecommerce/node_modules/passport/lib/middleware/authenticate.js:271:13)
+    at /home/kevin/Documents/PROJECT/curso backend/tercera_entrega_tp_final/ecommerce/node_modules/passport/lib/middleware/authenticate.js:278:15
+    at pass (/home/kevin/Documents/PROJECT/curso backend/tercera_entrega_tp_final/ecommerce/node_modules/passport/lib/authenticator.js:428:14)
+    at Authenticator.transformAuthInfo (/home/kevin/Documents/PROJECT/curso backend/tercera_entrega_tp_final/ecommerce/node_modules/passport/lib/authenticator.js:450:5) {
+  code: 'ERR_HTTP_HEADERS_SENT'
+}
+[2022-03-12T11:40:37.346] [ERROR] default - Path:  /auth/register  Error:  Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
+    at ServerResponse.setHeader (_http_outgoing.js:561:11)
+    at ServerResponse.header (/home/kevin/Documents/PROJECT/curso backend/tercera_entrega_tp_final/ecommerce/node_modules/express/lib/response.js:767:10)
+    at ServerResponse.send (/home/kevin/Documents/PROJECT/curso backend/tercera_entrega_tp_final/ecommerce/node_modules/express/lib/response.js:170:12)
+    at /home/kevin/Documents/PROJECT/curso backend/tercera_entrega_tp_final/ecommerce/routes/auth.js:48:19
+    at Layer.handle [as handle_request] (/home/kevin/Documents/PROJECT/curso backend/tercera_entrega_tp_final/ecommerce/node_modules/express/lib/router/layer.js:95:5)
+    at next (/home/kevin/Documents/PROJECT/curso backend/tercera_entrega_tp_final/ecommerce/node_modules/express/lib/router/route.js:137:13)
+    at complete (/home/kevin/Documents/PROJECT/curso backend/tercera_entrega_tp_final/ecommerce/node_modules/passport/lib/middleware/authenticate.js:271:13)
+    at /home/kevin/Documents/PROJECT/curso backend/tercera_entrega_tp_final/ecommerce/node_modules/passport/lib/middleware/authenticate.js:278:15
+    at pass (/home/kevin/Documents/PROJECT/curso backend/tercera_entrega_tp_final/ecommerce/node_modules/passport/lib/authenticator.js:428:14)
+    at Authenticator.transformAuthInfo (/home/kevin/Documents/PROJECT/curso backend/tercera_entrega_tp_final/ecommerce/node_modules/passport/lib/authenticator.js:450:5) {
+  code: 'ERR_HTTP_HEADERS_SENT'
+}
+[2022-03-12T11:41:53.742] [ERROR] default - Path:  /auth/register  Error:  Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
+    at ServerResponse.setHeader (_http_outgoing.js:561:11)
+    at ServerResponse.header (/home/kevin/Documents/PROJECT/curso backend/tercera_entrega_tp_final/ecommerce/node_modules/express/lib/response.js:767:10)
+    at ServerResponse.send (/home/kevin/Documents/PROJECT/curso backend/tercera_entrega_tp_final/ecommerce/node_modules/express/lib/response.js:170:12)
+    at ServerResponse.json (/home/kevin/Documents/PROJECT/curso backend/tercera_entrega_tp_final/ecommerce/node_modules/express/lib/response.js:267:15)
+    at /home/kevin/Documents/PROJECT/curso backend/tercera_entrega_tp_final/ecommerce/routes/auth.js:48:19
+    at Layer.handle [as handle_request] (/home/kevin/Documents/PROJECT/curso backend/tercera_entrega_tp_final/ecommerce/node_modules/express/lib/router/layer.js:95:5)
+    at next (/home/kevin/Documents/PROJECT/curso backend/tercera_entrega_tp_final/ecommerce/node_modules/express/lib/router/route.js:137:13)
+    at complete (/home/kevin/Documents/PROJECT/curso backend/tercera_entrega_tp_final/ecommerce/node_modules/passport/lib/middleware/authenticate.js:271:13)
+    at /home/kevin/Documents/PROJECT/curso backend/tercera_entrega_tp_final/ecommerce/node_modules/passport/lib/middleware/authenticate.js:278:15
+    at pass (/home/kevin/Documents/PROJECT/curso backend/tercera_entrega_tp_final/ecommerce/node_modules/passport/lib/authenticator.js:428:14) {
+  code: 'ERR_HTTP_HEADERS_SENT'
+}
+[2022-03-13T10:52:24.719] [ERROR] default - Path:  /auth/register  Error:  ReferenceError: salt is not defined
+    at Strategy._verify (/home/kevin/Documents/PROJECT/curso backend/tercera_entrega_tp_final/ecommerce/routes/auth.js:18:29)
+    at Strategy.authenticate (/home/kevin/Documents/PROJECT/curso backend/tercera_entrega_tp_final/ecommerce/node_modules/passport-local/lib/strategy.js:88:12)
+    at attempt (/home/kevin/Documents/PROJECT/curso backend/tercera_entrega_tp_final/ecommerce/node_modules/passport/lib/middleware/authenticate.js:369:16)
+    at authenticate (/home/kevin/Documents/PROJECT/curso backend/tercera_entrega_tp_final/ecommerce/node_modules/passport/lib/middleware/authenticate.js:370:7)
+    at Layer.handle [as handle_request] (/home/kevin/Documents/PROJECT/curso backend/tercera_entrega_tp_final/ecommerce/node_modules/express/lib/router/layer.js:95:5)
+    at next (/home/kevin/Documents/PROJECT/curso backend/tercera_entrega_tp_final/ecommerce/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/home/kevin/Documents/PROJECT/curso backend/tercera_entrega_tp_final/ecommerce/node_modules/express/lib/router/route.js:112:3)
+    at Layer.handle [as handle_request] (/home/kevin/Documents/PROJECT/curso backend/tercera_entrega_tp_final/ecommerce/node_modules/express/lib/router/layer.js:95:5)
+    at /home/kevin/Documents/PROJECT/curso backend/tercera_entrega_tp_final/ecommerce/node_modules/express/lib/router/index.js:281:22
+    at Function.process_params (/home/kevin/Documents/PROJECT/curso backend/tercera_entrega_tp_final/ecommerce/node_modules/express/lib/router/index.js:335:12)
+[2022-03-13T11:13:29.411] [ERROR] default - Path:  /auth/register  Error:  Error, usuario ya registrado
+[2022-03-13T11:18:00.738] [ERROR] default - Path:  /auth/register  Error:  Error, usuario ya registrado
+[2022-03-13T11:19:26.280] [ERROR] default - Path:  /auth/register  Error:  Error, usuario ya registrado
+[2022-03-13T11:19:51.634] [ERROR] default - Path:  /auth/register  Error:  Error: Error, usuario ya registrado
+    at Strategy._verify (/home/kevin/Documents/PROJECT/curso backend/tercera_entrega_tp_final/ecommerce/routes/auth.js:21:19)
+    at processTicksAndRejections (internal/process/task_queues.js:95:5)
+[2022-03-13T11:22:25.256] [ERROR] default - Path:  /auth/register  Error:  Error: Error, usuario ya registrado
+    at Strategy._verify (/home/kevin/Documents/PROJECT/curso backend/tercera_entrega_tp_final/ecommerce/routes/auth.js:21:19)
+    at processTicksAndRejections (internal/process/task_queues.js:95:5)
+[2022-03-13T11:23:22.875] [ERROR] default - Path:  /auth/register  Error:  Error: Error, usuario ya registrado
+    at Strategy._verify (/home/kevin/Documents/PROJECT/curso backend/tercera_entrega_tp_final/ecommerce/routes/auth.js:21:19)
+    at processTicksAndRejections (internal/process/task_queues.js:95:5)
+[2022-03-13T11:24:44.872] [ERROR] default - Path:  /auth/register  Error:  Error: Login sessions require session support. Did you forget to use `express-session` middleware?
+    at SessionStrategy.authenticate (/home/kevin/Documents/PROJECT/curso backend/tercera_entrega_tp_final/ecommerce/node_modules/passport/lib/strategies/session.js:46:41)
+    at attempt (/home/kevin/Documents/PROJECT/curso backend/tercera_entrega_tp_final/ecommerce/node_modules/passport/lib/middleware/authenticate.js:369:16)
+    at authenticate (/home/kevin/Documents/PROJECT/curso backend/tercera_entrega_tp_final/ecommerce/node_modules/passport/lib/middleware/authenticate.js:370:7)
+    at Layer.handle [as handle_request] (/home/kevin/Documents/PROJECT/curso backend/tercera_entrega_tp_final/ecommerce/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/home/kevin/Documents/PROJECT/curso backend/tercera_entrega_tp_final/ecommerce/node_modules/express/lib/router/index.js:317:13)
+    at /home/kevin/Documents/PROJECT/curso backend/tercera_entrega_tp_final/ecommerce/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/home/kevin/Documents/PROJECT/curso backend/tercera_entrega_tp_final/ecommerce/node_modules/express/lib/router/index.js:335:12)
+    at next (/home/kevin/Documents/PROJECT/curso backend/tercera_entrega_tp_final/ecommerce/node_modules/express/lib/router/index.js:275:10)
+    at initialize (/home/kevin/Documents/PROJECT/curso backend/tercera_entrega_tp_final/ecommerce/node_modules/passport/lib/middleware/initialize.js:89:5)
+    at Layer.handle [as handle_request] (/home/kevin/Documents/PROJECT/curso backend/tercera_entrega_tp_final/ecommerce/node_modules/express/lib/router/layer.js:95:5)
+[2022-03-13T11:25:09.221] [ERROR] default - Path:  /auth/register  Error:  Error: Error, usuario ya registrado
+    at Strategy._verify (/home/kevin/Documents/PROJECT/curso backend/tercera_entrega_tp_final/ecommerce/routes/auth.js:21:19)
+    at processTicksAndRejections (internal/process/task_queues.js:95:5)
+[2022-03-14T09:04:07.978] [ERROR] default - Path:  /auth/login/success  Error:  ReferenceError: user is not defined
+    at /home/kevin/Documents/PROJECT/curso backend/tercera_entrega_tp_final/ecommerce/routes/auth.js:84:15
+    at Layer.handle [as handle_request] (/home/kevin/Documents/PROJECT/curso backend/tercera_entrega_tp_final/ecommerce/node_modules/express/lib/router/layer.js:95:5)
+    at next (/home/kevin/Documents/PROJECT/curso backend/tercera_entrega_tp_final/ecommerce/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/home/kevin/Documents/PROJECT/curso backend/tercera_entrega_tp_final/ecommerce/node_modules/express/lib/router/route.js:112:3)
+    at Layer.handle [as handle_request] (/home/kevin/Documents/PROJECT/curso backend/tercera_entrega_tp_final/ecommerce/node_modules/express/lib/router/layer.js:95:5)
+    at /home/kevin/Documents/PROJECT/curso backend/tercera_entrega_tp_final/ecommerce/node_modules/express/lib/router/index.js:281:22
+    at Function.process_params (/home/kevin/Documents/PROJECT/curso backend/tercera_entrega_tp_final/ecommerce/node_modules/express/lib/router/index.js:335:12)
+    at next (/home/kevin/Documents/PROJECT/curso backend/tercera_entrega_tp_final/ecommerce/node_modules/express/lib/router/index.js:275:10)
+    at Function.handle (/home/kevin/Documents/PROJECT/curso backend/tercera_entrega_tp_final/ecommerce/node_modules/express/lib/router/index.js:174:3)
+    at router (/home/kevin/Documents/PROJECT/curso backend/tercera_entrega_tp_final/ecommerce/node_modules/express/lib/router/index.js:47:12)

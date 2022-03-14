@@ -1,14 +1,14 @@
 const { MongoClient, ServerApiVersion } = require('mongodb');
-
+const logger = require('../utils/logger.js');
 
 class MongoAdapter {
 
-    constructor () {
+    constructor (db, collection) {
         const uri = "mongodb+srv://admin:admin@clusterkevin.uq0gf.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
         this.client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
 
-        this.db = "segundaEntrega"
-        this.collection = "productos"
+        this.db = db
+        this.collection = collection
     } 
     
     async getAll(){
@@ -28,7 +28,7 @@ class MongoAdapter {
             return(data)
 
         } catch (e) {
-            console.error(e)
+            logger.error(e)
             return e
         }
 
@@ -44,7 +44,7 @@ class MongoAdapter {
             this.client.close()
 
         } catch (e) {
-            console.error(e)
+            logger.error(e)
             return e
         }
     }
@@ -60,7 +60,7 @@ class MongoAdapter {
             this.client.close()
 
         } catch (e) {
-            console.error(e)
+            logger.error(e)
             return e
         }
     }
@@ -76,7 +76,7 @@ class MongoAdapter {
             this.client.close()
 
         } catch (e) {
-            console.error(e)
+            logger.error(e)
             return e
         }
     }

@@ -1,9 +1,9 @@
-const Contenedor = require('../model/contenedor.js')
-const FirebaseAdapter = require('../adaptadores/firebaseAdapter.js')
-const ProductoRepository = require('../model/productoRepository.js')
+const Contenedor = require('../model/contenedor.js');
+const FirebaseAdapter = require('../adaptadores/firebaseAdapter.js');
+const ProductoRepository = require('../model/productoRepository.js');
 
 class CarritoRepository {
-    constructor (filePath) {
+    constructor () {
         this.carritoContenedor = new Contenedor( new FirebaseAdapter )
         this.productosRepository = new ProductoRepository
     }
@@ -19,7 +19,6 @@ class CarritoRepository {
 
         for (const id_producto of carrito.productos){
          const producto = await this.productosRepository.getById(id_producto)
-         console.log("Id producto", id_producto, producto)
          productos.push(producto)
         }
  
@@ -43,7 +42,6 @@ class CarritoRepository {
         carrito.productos = carrito.productos.filter(x => {
             return x !== idProducto
         })
-        console.log("Carrito actualzado " + carrito)
         return this.carritoContenedor.updateById(idCarrito, carrito)
     }
 }

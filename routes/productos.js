@@ -30,7 +30,7 @@ router.get('/', function(req, res, next) {
     .then(productos => { res.send(productos) })
     .catch(err => 
       { 
-        console.log('Error getting productos: ', err)
+        logger.error('Error getting productos: ', err)
         res.send("Error" + err)
       })
 })
@@ -48,7 +48,7 @@ router.get('/:id', function(req, res, next) {
     })
     .catch(err => 
       { 
-        console.log('Error getting productos: ', err)
+        logger.error('Error getting productos: ', err)
         res.send("Error" + err)
       })
 });
@@ -72,7 +72,7 @@ router.post('/', function(req, res, next) {
       })
       .catch(err => 
         { 
-          console.log('Error post productos: ', err)
+          logger.error('Error post productos: ', err)
           res.send("Error" + err)
         })
   }
@@ -100,7 +100,7 @@ router.put('/:id', async function(req, res, next) {
       const productoAct = await productosRepository.getById(id)
       res.send(productoAct)
     } catch (err) {
-      console.log('Error delete producto: ', err)
+      logger.error('Error delete producto: ', err)
       res.send("Error" + err)
     }
 
@@ -122,7 +122,7 @@ router.delete('/:id', function(req, res, next) {
   productosRepository.deleteById(id)
     .then( res.send({descripcion: `Borrado ${id} exitoso`}) )
     .catch(err => { 
-      console.log('Error delete producto: ', err)
+      logger.error('Error delete producto: ', err)
       res.send("Error" + err)
     })
 });

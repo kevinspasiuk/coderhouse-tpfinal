@@ -1,3 +1,5 @@
+const logger = require('../utils/logger.js');
+
 class Contenedor {
 
     constructor(dbAdapter) {
@@ -17,7 +19,7 @@ class Contenedor {
             const data = await this.adapter.getAll()
             return data
         } catch (e){
-            console.log("err en get all data: " + err)
+            logger.error("err en get all data: " + err)
             throw new Error('Error al leer datos', err)
         }
     }
@@ -38,7 +40,7 @@ class Contenedor {
         try {
             this.adapter.deleteById(number)
         } catch (e) {
-            console.log(e)
+            logger.error(e)
             return e
         }
     }
@@ -47,7 +49,7 @@ class Contenedor {
         try {
             await this.adapter.updateById(number, object)
         } catch (e) {
-            console.log(e)
+            logger.error(e)
             return e
         }
 

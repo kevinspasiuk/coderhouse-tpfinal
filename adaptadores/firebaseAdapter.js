@@ -1,4 +1,5 @@
 const firebase = require("firebase-admin");
+const logger = require('../utils/logger.js');
 
 class FirebaseAdapter {
     constructor () {
@@ -24,7 +25,7 @@ class FirebaseAdapter {
 
         return objetos
         } catch (e) {
-            console.log(e)
+            logger.error(e)
             return e
         }
     }
@@ -34,7 +35,7 @@ class FirebaseAdapter {
             let doc = this.collection.doc(`${object.id}`)
             await doc.create( object )
         } catch (e) {
-            console.log(e)
+            logger.error(e)
             return e
         }   
     }
@@ -45,7 +46,7 @@ class FirebaseAdapter {
             await doc.update(object)
 
         } catch (e) {
-            console.log(e)
+            logger.error(e)
             return e
         }
     }
@@ -56,7 +57,7 @@ class FirebaseAdapter {
             await doc.delete()
 
         } catch (e) {
-            console.log(e)
+            logger.error(e)
             return e
         }
     }
