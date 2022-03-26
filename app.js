@@ -5,78 +5,97 @@ const logger = require('./utils/logger.js')
 var passport = require('passport');
 var session = require('express-session');
 const MongoStore = require('connect-mongo');
-const advancedOptions = { useNewUrlParser: true, useUnifiedTopology: true};
+const http = require('http');
+const advancedOptions = { useNewUrlParser: true, useUnifiedTopology: true };
+var flash = require('connect-flash');
 
 // import routers
 const productosRouter = require('./routes/productos');
 const carritosRouter = require('./routes/carritos');
 const authRouter = require('./routes/auth');
+const ordenesRouter = require('./routes/orders');
+const chatRouter = require('./routes/chat');
+
+require('dotenv').config();
 
 const app = express();
-const port = process.env.port || 8080
+const port = process.env.PORT || 8080
+const serverHttp = http.createServer(app);
+
 
 // view engine setup
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'ejs');
+const exphbs = require('express-handlebars');
+app.engine('hbs', exphbs.engine({
+  extname: 'hbs',
+  defaultLayout: 'index.hbs'
+}))
+
+app.use(express.static('public'))
+app.set('views', './views')
 
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(flash());
+
 // TODO: pasar a secrets
 app.use(session({
   store: MongoStore.create({
-    mongoUrl: "mongodb+srv://admin:admin@clusterkevin.uq0gf.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
-    mongoOptions: advancedOptions    
+    mongoUrl: process.env.MONGO_DB_URL,
+    mongoOptions: advancedOptions
   }),
-  secret: 'shhhhhhhhhhhhhhhhhhhhh',
+  secret: process.env.SESSION_SECRET,
   resave: false,
   saveUninitialized: false,
   cookie: {
-    maxAge: 60000
+    maxAge: parseInt(process.env.COOKIE_MAX_AGE)
   }
 }));
 
 // routes
+const chat = require('./routes/chatWs')(serverHttp); 
 app.use('/api/productos', productosRouter);
 app.use('/api/carrito', carritosRouter);
 app.use('/auth', authRouter);
+app.use('/api/ordenes', ordenesRouter);
+app.use('/chat', chatRouter);
 
 
 app.use(passport.initialize());
 app.use(passport.session());
 
 // start server
-const server = app.listen(port, () => {
+const server = serverHttp.listen(port, () => {
   logger.info(`Servidor express escuchando en localhost:${port}`)
 })
 
-server.on('error', error => logger.error('Error en server: ', error))
 
 // error handler
+server.on('error', error => logger.error('Error en server: ', error))
+
 app.use((error, req, res, next) => {
   logger.error('Path: ', req.path, ' Error: ', error)
 
   if (error.name == "UnauthorizedError") {
     const mensaje = `Ruta ${req.path} con metodo ${req.method} no autorizado`
-    res.status(401).send({ 
-      error : 401, 
+    res.status(401).send({
+      error: 401,
       descripcion: mensaje
     })
   }
-  
-  res.status(500).send({ error : 500, descripcion: `Internal Server Error`})
+
+  res.status(500).send({ error: 500, descripcion: `Internal Server Error` })
 })
 
 //404 error
-app.use(function(req,res){
+app.use(function (req, res) {
   const mensaje = `Ruta ${req.path} con metodo ${req.method} no implementado`
-  
+
   logger.warn(mensaje)
 
   res.status(404).send({
-    error : 404, 
-    descripcion: mensaje 
+    error: 404,
+    descripcion: mensaje
   });
 });

@@ -1,10 +1,11 @@
 const { MongoClient, ServerApiVersion } = require('mongodb');
 const logger = require('../utils/logger.js');
+require('dotenv').config();
 
 class MongoAdapter {
 
     constructor (db, collection) {
-        const uri = "mongodb+srv://admin:admin@clusterkevin.uq0gf.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
+        const uri = process.env.MONGO_DB_URL;
         this.client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
 
         this.db = db

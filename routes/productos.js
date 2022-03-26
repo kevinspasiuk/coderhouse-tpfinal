@@ -1,9 +1,9 @@
 const express = require('express');
 const router = express.Router();
+const auth = require('../utils/authenticate.js')
+const authAdmin = require('../utils/authenticateAdmin.js')
 
-const UnauthorizedError = require('../model/errors.js');
-
-const ProductoRepository = require('../model/productoRepository.js')
+const ProductoRepository = require('../model/repositories/productoRepository.js')
 const productosRepository = new ProductoRepository
 
 
@@ -24,7 +24,7 @@ function validarProducto(producto) {
 
 //Rutas
 
-router.get('/', function(req, res, next) {
+router.get('/', auth, function(req, res, next) {
 
   productosRepository.getAll()
     .then(productos => { res.send(productos) })
@@ -35,7 +35,7 @@ router.get('/', function(req, res, next) {
       })
 })
 
-router.get('/:id', function(req, res, next) {
+router.get('/:id', auth, function(req, res, next) {
   const id = parseInt(req.params.id)
   productosRepository.getById(id)
     .then(producto => { 
@@ -53,12 +53,8 @@ router.get('/:id', function(req, res, next) {
       })
 });
 
-router.post('/', function(req, res, next) {
+router.post('/', authAdmin, function(req, res, next) {
   const auth = req.headers.authorize
-
-  if ( auth != "admin") {
-    throw new UnauthorizedError
-  }
 
   try {
     validarProducto(req.body)
@@ -82,12 +78,8 @@ router.post('/', function(req, res, next) {
 
 });
 
-router.put('/:id', async function(req, res, next) {
+router.put('/:id', authAdmin, async function(req, res, next) {
   const auth = req.headers.authorize
-
-  if ( auth != "admin") {
-    throw new UnauthorizedError
-  }
 
   try {
     validarProducto(req.body)
@@ -111,13 +103,8 @@ router.put('/:id', async function(req, res, next) {
   
 });
 
-router.delete('/:id', function(req, res, next) {
-  const auth = req.headers.authorize
-
-  if ( auth != "admin") {
-    throw new UnauthorizedError
-  }
-
+router.delete('/:id', authAdmin,  function(req, res, next) {
+ 
   const id = parseInt(req.params.id)
   productosRepository.deleteById(id)
     .then( res.send({descripcion: `Borrado ${id} exitoso`}) )

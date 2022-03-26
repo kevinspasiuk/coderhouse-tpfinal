@@ -1,12 +1,12 @@
-const Contenedor = require('./contenedor.js')
-const MongoAdapter = require('../adaptadores/mongoAdapter')
+const Contenedor = require('../contenedor.js')
+const MongoAdapter = require('../../adaptadores/mongoAdapter')
 
-class UserRepository {
+class ProductoRepository {
 
     constructor() {
         //acá podría ir la config de coleccion de mongo
         this.db = "segundaEntrega"
-        this.collection = "usuarios"
+        this.collection = "productos"
 
         this.contenedor = new Contenedor( new MongoAdapter(this.db, this.collection))
     }
@@ -39,31 +39,6 @@ class UserRepository {
         }
     }
 
-    async getByUsername (username) {
-
-        //esto debería ir en el adaptador, get by Field ( campo, valor )
-
-        try {
-            const usuarios = await this.contenedor.getAll()
-
-            let usuarioEncontrado;
-
-            usuarios.forEach(usuario => {
-
-                if (usuario.user == username) {
-                    usuarioEncontrado =  usuario
-                }
-                
-            });
-
-            return usuarioEncontrado
-
-        } catch (e) {
-            return (e)
-        }
-
-    }
-
     async deleteById (number) {
         try {
             await this.contenedor.deleteById(number)  
@@ -82,4 +57,4 @@ class UserRepository {
     }
 }
 
-module.exports = UserRepository
+module.exports = ProductoRepository

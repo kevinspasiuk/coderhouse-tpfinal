@@ -5,9 +5,13 @@ class FirebaseAdapter {
     constructor () {
         const serviceAccount = require("./coderhouse-61464-firebase-adminsdk-7ti65-2dce5ecf8e.json");
 
-        firebase.initializeApp({
-          credential: firebase.credential.cert(serviceAccount)
-        });
+        if (!firebase.apps.length) {
+            firebase.initializeApp({
+                credential: firebase.credential.cert(serviceAccount)
+              });
+         }else {
+            firebase.app(); 
+         }
 
         this.db = firebase.firestore();
         this.collection = this.db.collection("carritos") 
