@@ -49,12 +49,10 @@
 							]
 						},
 						"url": {
-							"raw": "http://localhost:8080/auth/register",
-							"protocol": "http",
+							"raw": "{{baseUrl}}/auth/register",
 							"host": [
-								"localhost"
+								"{{baseUrl}}"
 							],
-							"port": "8080",
 							"path": [
 								"auth",
 								"register"
@@ -91,12 +89,10 @@
 							]
 						},
 						"url": {
-							"raw": "http://localhost:8080/auth/login",
-							"protocol": "http",
+							"raw": "{{baseUrl}}/auth/login",
 							"host": [
-								"localhost"
+								"{{baseUrl}}"
 							],
-							"port": "8080",
 							"path": [
 								"auth",
 								"login"
@@ -123,12 +119,10 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/api/productos/",
-							"protocol": "http",
+							"raw": "{{baseUrl}}/api/productos/",
 							"host": [
-								"localhost"
+								"{{baseUrl}}"
 							],
-							"port": "8080",
 							"path": [
 								"api",
 								"productos",
@@ -144,12 +138,10 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/api/productos/:id",
-							"protocol": "http",
+							"raw": "{{baseUrl}}/api/productos/:id",
 							"host": [
-								"localhost"
+								"{{baseUrl}}"
 							],
-							"port": "8080",
 							"path": [
 								"api",
 								"productos",
@@ -187,12 +179,10 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/api/productos/:id",
-							"protocol": "http",
+							"raw": "{{baseUrl}}/api/productos/:id",
 							"host": [
-								"localhost"
+								"{{baseUrl}}"
 							],
-							"port": "8080",
 							"path": [
 								"api",
 								"productos",
@@ -230,12 +220,10 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/api/productos",
-							"protocol": "http",
+							"raw": "{{baseUrl}}/api/productos",
 							"host": [
-								"localhost"
+								"{{baseUrl}}"
 							],
-							"port": "8080",
 							"path": [
 								"api",
 								"productos"
@@ -257,12 +245,10 @@
 							}
 						],
 						"url": {
-							"raw": "http://localhost:8080/api/productos/:id",
-							"protocol": "http",
+							"raw": "{{baseUrl}}/api/productos/:id",
 							"host": [
-								"localhost"
+								"{{baseUrl}}"
 							],
-							"port": "8080",
 							"path": [
 								"api",
 								"productos",
@@ -289,12 +275,10 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/api/carrito/:id",
-							"protocol": "http",
+							"raw": "{{baseUrl}}/api/carrito/:id",
 							"host": [
-								"localhost"
+								"{{baseUrl}}"
 							],
-							"port": "8080",
 							"path": [
 								"api",
 								"carrito",
@@ -303,7 +287,7 @@
 							"variable": [
 								{
 									"key": "id",
-									"value": "4"
+									"value": "3"
 								}
 							]
 						}
@@ -325,12 +309,10 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/api/carrito/",
-							"protocol": "http",
+							"raw": "{{baseUrl}}/api/carrito/",
 							"host": [
-								"localhost"
+								"{{baseUrl}}"
 							],
-							"port": "8080",
 							"path": [
 								"api",
 								"carrito",
@@ -346,12 +328,10 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/api/carrito/:id/productos",
-							"protocol": "http",
+							"raw": "{{baseUrl}}/api/carrito/:id/productos",
 							"host": [
-								"localhost"
+								"{{baseUrl}}"
 							],
-							"port": "8080",
 							"path": [
 								"api",
 								"carrito",
@@ -361,7 +341,7 @@
 							"variable": [
 								{
 									"key": "id",
-									"value": "1"
+									"value": "3"
 								}
 							]
 						}
@@ -383,12 +363,10 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/api/carrito/:id/productos",
-							"protocol": "http",
+							"raw": "{{baseUrl}}/api/carrito/:id/productos",
 							"host": [
-								"localhost"
+								"{{baseUrl}}"
 							],
-							"port": "8080",
 							"path": [
 								"api",
 								"carrito",
@@ -411,12 +389,10 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/api/carrito/:id",
-							"protocol": "http",
+							"raw": "{{baseUrl}}/api/carrito/:id",
 							"host": [
-								"localhost"
+								"{{baseUrl}}"
 							],
-							"port": "8080",
 							"path": [
 								"api",
 								"carrito",
@@ -438,12 +414,10 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/api/carrito/:id/productos/:id_producto",
-							"protocol": "http",
+							"raw": "{{baseUrl}}/api/carrito/:id/productos/:id_producto",
 							"host": [
-								"localhost"
+								"{{baseUrl}}"
 							],
-							"port": "8080",
 							"path": [
 								"api",
 								"carrito",
@@ -454,7 +428,7 @@
 							"variable": [
 								{
 									"key": "id",
-									"value": "4"
+									"value": "3"
 								},
 								{
 									"key": "id_producto",
@@ -491,12 +465,10 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/api/ordenes",
-							"protocol": "http",
+							"raw": "{{baseUrl}}/api/ordenes",
 							"host": [
-								"localhost"
+								"{{baseUrl}}"
 							],
-							"port": "8080",
 							"path": [
 								"api",
 								"ordenes"
@@ -526,12 +498,10 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/api/ordenes/:id",
-							"protocol": "http",
+							"raw": "{{baseUrl}}/api/ordenes/:id",
 							"host": [
-								"localhost"
+								"{{baseUrl}}"
 							],
-							"port": "8080",
 							"path": [
 								"api",
 								"ordenes",
@@ -559,12 +529,10 @@
 							}
 						],
 						"url": {
-							"raw": "http://localhost:8080/api/ordenes/:id",
-							"protocol": "http",
+							"raw": "{{baseUrl}}/api/ordenes/:id",
 							"host": [
-								"localhost"
+								"{{baseUrl}}"
 							],
-							"port": "8080",
 							"path": [
 								"api",
 								"ordenes",
@@ -592,12 +560,10 @@
 							}
 						],
 						"url": {
-							"raw": "http://localhost:8080/api/ordenes/:id",
-							"protocol": "http",
+							"raw": "{{baseUrl}}/api/ordenes/:id",
 							"host": [
-								"localhost"
+								"{{baseUrl}}"
 							],
-							"port": "8080",
 							"path": [
 								"api",
 								"ordenes",
